@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		body{
+			margin:0;
+			padding:0;
+		}
+		#backgroud{
+			position: absolute;
+			z-index:-1;
+			width:99%; 
+			height:99%;
+		}
+		#center{
+			position: relative;
+			margin:0;padding:0;
+		}
+		#top{
+			position:absolute;
+			top:0;
+			left:50px;
+		}
+		#left{
+			float:left;
+			position:absolute;
+			top:435px;
+			width:406px;
+		}
+		#right{
+			float:left;
+			position:absolute;
+			top:337px;
+			width:580px;
+			font-family: "Arial Black", Gadget, sans-serif; 
+			font-weight:bold; 
+			color: #fff; 
+		}
+		#bottom{
+			position:absolute;
+			top:900px;
+			font-family: "Arial Black", Gadget, sans-serif; 
+			font-weight:bold; 
+		}
+		#footer{
+			position:absolute;
+			top:920px;
+			margin:0 30%;
+			font-family: "Arial Black", Gadget, sans-serif; 
+			font-weight:bold; 
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.4.4.min.js"></script>
+</head>
+<body>
+	<div id="backgroud">
+		<img class="my-image" src="images/bg.png" alt="" style="height:100%;width:100%;">
+	</div>
+	<div id="center">
+		<img src="images/navigation.png" alt="" style="height:435px;width:100%;">
+		<div id="top">
+			<img src="tel.png" alt="">
+		</div>
+		<div id="left">
+			<div>
+				<img src="images/title.png" alt="">
+			</div>
+			<div>
+				<img src="images/notice.png" alt="">
+			</div>
+		</div>
+		<div id="right">
+			<div>
+				<img src="images/login-bg.png" alt="">
+			</div>
+		</div>
+	</div>
+	<div id="bottom">
+		<img src="images/bottom-line.png"/>
+	</div>
+	<div id="footer">
+		<span>Copyright</span>
+	</div>
+	<script>
+		$(function(){
+			window.onresize = resizeWindow;
+			resizeWindow();
+		});
+		function resizeWindow()
+		{
+			var leftDivWidth = $("#left").width();
+			var rightDivWidth = $("#right").width();
+			var windowWidth = $(window).width();
+			var rigthPaddingLeft = 30;
+			var leftL = windowWidth - leftDivWidth - rightDivWidth - rigthPaddingLeft;
+			if(leftL > 0)
+			{
+				leftL = leftL / 2;
+			}
+			else
+			{
+				leftL = 0;
+			}
+			$("#left").css("left",leftL);
+			$("#bottom").css("left",leftL);
+			var rleft = leftL + leftDivWidth + rigthPaddingLeft;
+			$("#right").css("left",rleft);
+		}
+	</script>
+</body>
+</html>
